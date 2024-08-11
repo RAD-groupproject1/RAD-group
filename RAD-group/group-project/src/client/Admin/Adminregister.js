@@ -13,7 +13,7 @@ const AdminRegister = () => {
       alert('Passwords do not match');
       return;
     }
-    navigate('/admin'); 
+    navigate('/adminLogin'); 
   };
 
   return (

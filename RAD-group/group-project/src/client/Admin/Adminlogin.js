@@ -33,7 +33,7 @@ const AdminLogin = () => {
         />
         <button onClick={handleLogin}>Login</button>
         <p>
-          Don't have an account? <Link to="/Adminregister">Register here</Link>
+          Don't have an account? <Link to="/adminRegister">Register here</Link>
         </p>
       </div>
     </div>

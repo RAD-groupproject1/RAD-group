@@ -12,7 +12,7 @@ const Home=()=>{
   const navigate = useNavigate();
   
   const admin=()=>{
-    navigate('/admin')
+    navigate('/adminLogin')
   }
 
   return (
