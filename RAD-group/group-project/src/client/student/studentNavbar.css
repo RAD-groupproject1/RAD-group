@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.stunavbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4bba91;
+  padding: 10px 20px;
+}
+
+.stunavnar button {
+  background-color: #5775d7;
+  color: rgb(238, 238, 238);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+.stunavnar button:hover {
+  background-color: #cb6464;
+}
+
+.stunavnar a {
+  text-decoration: none;
+}
+
+.stunavnar a button {
+  margin: 0 10px;
+}
