@@ -15,6 +15,10 @@ const Home=()=>{
     navigate('/adminLogin')
   }
 
+  const student=()=>{
+    navigate('/studentLogin')
+  }
+
   return (
     <div>
 
@@ -37,7 +41,7 @@ const Home=()=>{
       <h1>CHOOSE YOUR ROLE</h1>
       <div className="container">
 
-        <button className="button" >
+        <button className="button" onClick={student}>
           <div className="content">STUDENT</div>
         </button>
 
