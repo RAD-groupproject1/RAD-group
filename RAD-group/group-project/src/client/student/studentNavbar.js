@@ -1,27 +1,25 @@
-import React from 'react';
-import './studentNavbar.css'
-import { Link } from 'react-router-dom';
+import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const StudentNavBar = () => {
-
-  const logout = ()=> {
-    localStorage.removeItem("token");
-    window.location.reload();
-    window.location = "/";
-  } 
-    return (
-    <div>
-      <h1>Learn Link</h1>
-      <br/>
-      <nav className='stunavnar'>
-        <Link to="/student"><button>Student Home</button></Link>
-        <Link to="/student/course"><button>View Courses</button></Link>
-        <Link to="/student/announcement"><button>View Announcement</button></Link>
-      <button onClick={logout}>logout</button>
-      
-      </nav>
-    </div>
+export default function Navigate() {
+  return (
+    <>
+    <Navbar style={{backgroundColor:'#140443 ',color:"white"}}>
+        <Container>
+          <Navbar.Brand href="/student" style={{color:'white',fontSize:"30px"}}>ADMIN</Navbar.Brand>
+          <Nav >
+            <Nav.Link href="/student" style={{color:'white'}}>HOME</Nav.Link>
+            <Nav.Link href="/Course/view" style={{color:'white'}}>VIEWCOURSE</Nav.Link>
+            <Nav.Link href="/Announcement/view" style={{color:'white'}}>VIEWANNOUNCEMENT</Nav.Link>
+            
+            <Nav.Link href="/" style={{color:'white'}}>LOGOUT</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      </>
   );
 }
 
-export default StudentNavBar;
