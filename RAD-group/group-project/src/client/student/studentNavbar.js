@@ -9,11 +9,11 @@ export default function Navigate() {
     <>
     <Navbar style={{backgroundColor:'#140443 ',color:"white"}}>
         <Container>
-          <Navbar.Brand href="/student" style={{color:'white',fontSize:"30px"}}>ADMIN</Navbar.Brand>
+          <Navbar.Brand href="/student" style={{color:'white',fontSize:"30px"}}>STUDENT</Navbar.Brand>
           <Nav >
             <Nav.Link href="/student" style={{color:'white'}}>HOME</Nav.Link>
-            <Nav.Link href="/Course/view" style={{color:'white'}}>VIEWCOURSE</Nav.Link>
-            <Nav.Link href="/Announcement/view" style={{color:'white'}}>VIEWANNOUNCEMENT</Nav.Link>
+            <Nav.Link href="/Course/view" style={{color:'white'}}>VIEW COURSE</Nav.Link>
+            <Nav.Link href="/Announcement/view" style={{color:'white'}}>VIEW ANNOUNCEMENT</Nav.Link>
             
             <Nav.Link href="/" style={{color:'white'}}>LOGOUT</Nav.Link>
           </Nav>

@@ -16,6 +16,8 @@ import StudentLogin from './client/student/StudentLogin'
 import StudentRegister from './client/student/StudentRegister'
 import StudentHome from './client/student/StudentHome'
 
+import ViewCourse from './client/student/ViewCourse';
+import ViewAnnouncement from './client/student/ViewAnnouncement';
 
 
 
@@ -38,7 +40,8 @@ function App() {
           <Route path="/studentLogin" element={<StudentLogin />} />
           <Route path="/studentRegister" element={<StudentRegister />} />
           <Route path="/student" element={<StudentHome />} />
-
+          <Route path="/Course/View" element={<ViewCourse />} />
+          <Route path='/Announcement/View'element={<ViewAnnouncement/>} />
           
           </Routes>
       </Router>

@@ -1,46 +1,55 @@
-import React from 'react'
-//import axios from "axios";
-//import  { useEffect, useState } from "react";
+import React from 'react';
+import Navigate from './studentNavbar'
+import './stu.css'
 
 export default function ViewCourse() {
 
-    /*const [courses, setCourses] = useState([]);
-
-    useEffect(()=>{
-        axios.get('http://localhost:8080/course') 
-        .then(result=>setCourses(result.data))
-        .catch(err=>console.log(err))
-    },[]);*/
+  
+  const courses = [
+    {
+      courseId: 'C001',
+      coursename: 'React Basics',
+      fee: '100 USD',
+      day: 'Monday',
+      duration: '4 weeks',
+    },
+    {
+      courseId: 'C002',
+      coursename: 'Advanced React',
+      fee: '150 USD',
+      day: 'Wednesday',
+      duration: '6 weeks',
+    },
+    
+  ];
 
   return (
-    <div>
-      <h1>Courses</h1>
+    <div className='stu'><Navigate/>
+    <h1 style={{alignItems:'center',display:'flex',justifyContent:'center',color:'white'}}>Courses</h1>
       <table>
-            <thead>
-                <tr>
-                    <th>Course ID</th>
-                    <th>Course Name</th>
-                    <th>Course Fee</th>
-                    <th>Course Day </th>
-                    <th>Course Duration</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    /*courses.map((course)=>{
-                        return(
-                        <tr>
-                            <td>{course.courseId}</td>
-                            <td>{course.coursename}</td>
-                            <td>{course.fee}</td>
-                            <td>{course.day}</td>
-                            <td>{course.duration}</td>
-                        </tr>
-                        );
-                    })*/
-                }
-            </tbody>
-            </table>
+        <thead>
+          <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Course Fee</th>
+            <th>Course Day </th>
+            <th>Course Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            courses.map((course) => (
+              <tr key={course.courseId}>
+                <td>{course.courseId}</td>
+                <td>{course.coursename}</td>
+                <td>{course.fee}</td>
+                <td>{course.day}</td>
+                <td>{course.duration}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
-  )
+  );
 }

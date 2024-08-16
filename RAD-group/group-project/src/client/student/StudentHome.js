@@ -1,20 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import StudentNavigate from './studentNavbar'
+import React, { useState, useEffect } from 'react';
+import StudentNavigate from './studentNavbar';
+import './StudentHome.css'
 
-export default function StudentHome() {
+export default function WelcomeMessage() {
+  const [greeting, setGreeting] = useState('');
+
+  useEffect(() => {
+    
+    const today = new Date();
+    const hour = today.getHours();
+
+    
+    let message;
+    if (hour < 12) {
+      message = 'Good Morning';
+    } else if (hour < 18) {
+      message = 'Good Afternoon';
+    } else {
+      message = 'Good Evening';
+    }
+
+    
+    setGreeting(message);
+  }, []); 
+
   return (
-    <div>
-     
-          <StudentNavigate/>
-            <div className="viewhome">
-                <h1>View Course</h1>
-                <Link to="/student/course"><button className='button-container1'>View</button></Link>
-            </div>
-            <div className="viewhome">
-                <h1>View Announcement</h1>
-                <Link to="/student/announcement"><button className='button-container2'>view</button></Link>
-            </div>
+    <div className='student'>
+      <StudentNavigate />
+      <div>
+        <h1>{greeting}</h1>
+      </div>
     </div>
-  )
+  );
 }

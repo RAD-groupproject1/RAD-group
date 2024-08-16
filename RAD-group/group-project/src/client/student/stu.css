@@ -1,0 +1,62 @@
+/* stu.css */
+
+.stu{
+    background-color: rgb(126, 87, 233);
+    animation: mymove 5s infinite;
+    
+  }
+
+  .stu h1 {
+    margin-bottom: 20px;
+    
+  }
+
+  
+
+  table{
+    margin-top: 150px; 
+    width: 100%; 
+    padding: 40px;
+  }
+  
+
+table {
+    position: absolute;  /* table */
+    
+}
+
+.th{
+    background-color: rgb(0, 0, 0);
+}
+
+  th{
+    width: 20px; 
+  }
+
+table, th, td {
+    border: 1px solid #ffffff;
+    font-size: 14px;
+}
+
+thead {
+    background-color: rgb(12, 12, 12);
+    color: rgb(255, 255, 255);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #efefef;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #efefef;
+}
+
+
+
+

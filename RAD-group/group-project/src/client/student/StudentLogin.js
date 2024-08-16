@@ -17,7 +17,7 @@ const StudentLogin = () => {
 
   return (
     <div className="login-container">
-      <h2>Admin Login</h2>
+      <h2>Student Login</h2>
       <div className="login-form">
         <input 
           type="text" 

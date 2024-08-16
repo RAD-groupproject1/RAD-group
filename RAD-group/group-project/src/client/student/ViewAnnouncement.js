@@ -1,20 +1,24 @@
 import React from 'react';
-//import axios from "axios";
-//import { useEffect, useState } from "react";
+import Navigate from './studentNavbar'
+import './stu.css'
 
 export default function ViewAnnouncement() {
 
-  /*const [announcements, setAnnouncement] = useState([]);
-
-    useEffect(()=>{
-        axios.get('http://localhost:3000/announcement') 
-        .then(result=>setAnnouncement(result.data))
-        .catch(err=>console.log(err))
-    },[]); */
-
+  const Announcements = [
+  {
+    courseId: 'C001',
+    date: '2024/05/20',
+    description: 'Final exam date announced'
+  },
+  {
+    courseId: 'C002',
+    date: '2024/06/01',
+    description: 'Assignment 2 submission deadline',
+  }
+  ]
   return (
-    <div>
-      <h1>Announcement</h1>
+    <div className='stu'><Navigate/>
+    <h1 style={{alignItems:'center',display:'flex',justifyContent:'center',color:'white'}}>Announcement</h1>
       <table>
         <thead>
           <tr>
@@ -24,15 +28,15 @@ export default function ViewAnnouncement() {
           </tr>
         </thead>
         <tbody>
-          {/*announcements.map((announcement)=>{
+          {Announcements.map((announcement)=>{
                         return(
-                        <tr>
+                        <tr key={announcement.courseId}>
                             <td>{announcement.courseId}</td>
                             <td>{announcement.date}</td>
                             <td>{announcement.description}</td>
                         </tr>
                         );
-                    })*/
+                    })
                         }
         </tbody>
       </table>
