@@ -5,6 +5,7 @@ import home1 from './images/home1.png'
 import home2 from './images/home2.png'
 import home3 from './images/home3.png'
 import home5 from './images/home5.png'
+import InstructorLogin from './InstructorLogin/InstructorLogin';
 
 
 
@@ -14,6 +15,11 @@ const Home=()=>{
   const admin=()=>{
     navigate('/adminLogin')
   }
+
+   // Function to navigate to InstructorLogin
+   const goToInstructorLogin = () => {
+    navigate('/instructorLogin');
+  };
 
   return (
     <div>
@@ -41,9 +47,9 @@ const Home=()=>{
           <div className="content">STUDENT</div>
         </button>
 
-        <button className="button" >
-          <div className="content">INSTRUCTOR</div>
-        </button>
+        <button className="button" onClick={goToInstructorLogin}>
+            <div className="content">INSTRUCTOR</div>
+          </button>
 
         <button className="button"onClick={admin}>
           <div className="content">ADMIN</div>

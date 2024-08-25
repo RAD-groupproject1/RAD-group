@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "rad": "^0.5.0",
+    "react": "^18.3.1"
+  },
+  "name": "rad-group",
+  "version": "1.0.0",
+  "description": "MERN-stack 2nd year group project",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
