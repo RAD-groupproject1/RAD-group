@@ -7,7 +7,7 @@ const app = express();
 
 //Routers
 const studentRouter=require('./routes/studentRoutes')
-
+const studentRouter=require('./routes/instrutorRoutes')
 
 // app middleware
 app.use(bodyParser.json());
@@ -16,6 +16,7 @@ app.use(cors());
 
 //route middlewares
 app.use("/addstudent" ,studentRouter)
+app.use("Instuctor",instructorRoter)
 
 
 
