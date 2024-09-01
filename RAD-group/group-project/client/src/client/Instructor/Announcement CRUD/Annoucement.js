@@ -1,13 +1,27 @@
 import React from 'react'
 import InsNavbar from '../InsNavbar';
 import '../../Admin/Student CRUD/student.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from "axios";
 
 
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Annoucement() {
-  const [annoucements, setAnnoucements] = useState([]);
+  const [annoucement, setAnnoucement] = useState([]);
+
+  useEffect(()=>{
+    axios.get('http://localhost:5000/announcement') 
+    .then(result=>setAnnoucement(result.data))
+    .catch(err=>console.log(err))
+},[]);
+
+function handleDelete(id){
+    axios.delete('http://localhost:5000/announcement/'+id)
+    .then(res=>{console.log(res)
+    window.location.reload()})
+    .catch(err => console.log(err))
+}
 
   const navigate = useNavigate();
   const buttonclick=()=>{
@@ -15,7 +29,7 @@ export default function Annoucement() {
   }
   return (
     <div ><InsNavbar/>
-      <h1 className='stupage'>Annoucements</h1>
+      <h1 className='stupage'>Announcements</h1>
      <button className='add' onClick={buttonclick}>Add Annoucement</button>
 
      <div style={{marginTop:'150px'}}>
@@ -30,7 +44,7 @@ export default function Annoucement() {
         </thead>
          <tbody>
             {
-               annoucements.map((annoucement)=>{
+               annoucement.map((annoucement)=>{
                 return(
                   <tr>
                       <td>{annoucement.courseId}</td>
@@ -38,8 +52,8 @@ export default function Annoucement() {
                       <td>{annoucement.day}</td>
                       <td>{annoucement.duration}</td>
                       <td>
-                        <button>update</button>
-                        <button >Delete</button>
+                        <Link to={`/announcement/update/${annoucement._id}`}><button>update</button></Link>
+                        <button onClick={() => handleDelete(annoucement._id)} >Delete</button>
                       </td>
                   </tr>
                       );

@@ -1,13 +1,18 @@
 import React from 'react'
 import StudentNavbar from './studentNavbar'
 import '../Admin/Student CRUD/student.css'
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import axios from "axios";
 
 export default function ViewAnnouncement() {
-  const [annoucements, setAnnoucements] = useState([]);
+  const [annoucement, setAnnoucement] = useState([]);
 
-  
+  useEffect(()=>{
+    axios.get('http://localhost:3000/announcement') 
+    .then(result=>setAnnoucement(result.data))
+    .catch(err=>console.log(err))
+},[]);
+
   return (
     <div ><StudentNavbar/>
       <h1 className='stupage'>Annoucements</h1>
@@ -24,7 +29,7 @@ export default function ViewAnnouncement() {
         </thead>
          <tbody>
             {
-               annoucements.map((annoucement)=>{
+               annoucement.map((annoucement)=>{
                 return(
                   <tr>
                       <td>{annoucement.courseId}</td>
