@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './adminRegister.css';
+import '../Admin/adminRegister.css';
 
-const AdminRegister = () => {
+const InsRegister = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,12 +13,12 @@ const AdminRegister = () => {
       alert('Passwords do not match');
       return;
     }
-    navigate('/adminLogin'); 
+    navigate('/instructorLogin'); 
   };
 
   return (
     <div className="register-container">
-      <h2>Admin Register</h2>
+      <h2>Instructor Register</h2>
       <div className="register-form">
         <input 
           type="text" 
@@ -44,4 +44,4 @@ const AdminRegister = () => {
   );
 };
 
-export default AdminRegister;
+export default InsRegister;

@@ -32,9 +32,7 @@ const AdminLogin = () => {
           onChange={(e) => setPassword(e.target.value)} 
         />
         <button onClick={handleLogin}>Login</button>
-        <p>
-          Don't have an account? <Link to="/adminRegister">Register here</Link>
-        </p>
+        
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react'
-import './addstudent.css'
+import '../Student CRUD/addstudent.css'
 import { useNavigate } from "react-router-dom";
 
 export default function Addform() {
