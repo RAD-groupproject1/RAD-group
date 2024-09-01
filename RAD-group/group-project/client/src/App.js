@@ -9,8 +9,9 @@ import Student from './client/Admin/Student CRUD/StudentHome';
 import Createstudent from './client/Admin/Student CRUD/Createstudent';
 import UpdateStudent from './client/Admin/Student CRUD/Updatestudent';
 
-import Instructor from './client/Admin/Instructor CRUD/Instructor'
-import Addinstructor from './client/Admin/Instructor CRUD/Addinstructor'
+import Instructor from './client/Admin/Instructor CRUD/InstructorHome';
+import Createinstructor from './client/Admin/Instructor CRUD/Createinstructor';
+import UpdateInstructor from './client/Admin/Instructor CRUD/Updateinstructor';
 import Payments from './client/Admin/Payment CRUD/Payments'
 import Addpayment from './client/Admin/Payment CRUD/Addpayment'
 
@@ -43,7 +44,9 @@ function App() {
           <Route path="/admin/student/addstudent" element={<Createstudent />} />
           <Route path="/admin/student/update/:id" element={<UpdateStudent />} />
           <Route path="/admin/instructor" element={<Instructor />} />
-          <Route path="/admin/instructor/addinstructor" element={<Addinstructor />} />
+          <Route path="/admin/instructor/addinstructor" element={<Createinstructor />} />
+          <Route path="/admin/instructor/update/:id" element={<UpdateInstructor />} />
+
           <Route path="/admin/payments" element={<Payments />} />
           <Route path="/admin/payments/addpayment" element={<Addpayment />} />
        
