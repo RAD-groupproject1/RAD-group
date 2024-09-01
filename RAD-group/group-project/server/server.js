@@ -7,7 +7,11 @@ const app = express();
 
 //Routers
 const studentRouter=require('./routes/studentRoutes')
+<<<<<<< HEAD
 const insructorRouter=require('./routes/insructorRoutes')
+=======
+const announcementRouter = require("./routes/announcementRouter");
+>>>>>>> e17b8d15781f0fb5e3062ecb8bfff5043ffc00ae
 
 // app middleware
 app.use(bodyParser.json());
@@ -16,7 +20,11 @@ app.use(cors());
 
 //route middlewares
 app.use("/addstudent" ,studentRouter)
+<<<<<<< HEAD
 app.use("/addinsructor",insructorRouter)
+=======
+app.use("/announcement",announcementRouter);
+>>>>>>> e17b8d15781f0fb5e3062ecb8bfff5043ffc00ae
 
 
 
