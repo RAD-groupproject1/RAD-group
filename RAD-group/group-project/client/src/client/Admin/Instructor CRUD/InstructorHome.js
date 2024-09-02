@@ -10,7 +10,7 @@ export default function Instructor() {
   const [instructors, setinstructors] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/addinsructor') 
+    axios.get('http://localhost:5000/addinstructor') 
     .then(result=>setinstructors(result.data))
     .catch(err=>console.log(err))
 },[]);
@@ -37,10 +37,10 @@ function handleDelete(id){
             <tr>
                 <th>Name</th>
                 <th>NIC</th>
-                <th>Index.No</th>
                 <th>Address</th>
+                <th>Phone</th>
                 <th>E-mail</th>
-                <th>Phone.No</th>
+                <th>Birthday</th>
                 <th>Action</th>
                 </tr>
         </thead>
@@ -50,11 +50,11 @@ function handleDelete(id){
                 return(
                   <tr>
                       <td>{instructor.name}</td>
-                      <td>{instructor.nic}</td>
-                      <td>{instructor.index}</td>
+                      <td>{instructor.NIC}</td>
                       <td>{instructor.address}</td>
-                      <td>{instructor.mail}</td>
                       <td>{instructor.phone}</td>
+                      <td>{instructor.email}</td>
+                      <td>{instructor.birthday}</td>
                       <td>
                       <Link to={`/admin/instructor/update/${instructor._id}`}><button>update</button></Link>
                       <button onClick={(e) => handleDelete(instructor._id)}>Delete</button>

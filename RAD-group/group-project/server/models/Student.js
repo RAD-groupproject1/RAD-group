@@ -3,16 +3,16 @@ const mongoose=require ('mongoose');
 const studentSchema = new mongoose.Schema({
     name :{
         type:String,
-        required:true,
+        required:true
     },
 
     NIC:{
         type:String,
-        required:true,
+        required:true
     },
 
     address:{
-       type:String,
+       type:String
     },
 
     email:{
@@ -26,7 +26,7 @@ const studentSchema = new mongoose.Schema({
     },
 
     birthday:{
-        type: String,
+        type: String
     }
 });
 

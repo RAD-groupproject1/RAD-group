@@ -23,7 +23,7 @@ function UpdateInstructor(){
         .then(result=>{console.log(result)
            
             setName(result.data.name);
-            setNIC(result.data.nic);
+            setNIC(result.data.NIC);
             setAddress(result.data.address);
             setPhone(result.data.phone);
             setEmail(result.data.email);
@@ -34,10 +34,11 @@ function UpdateInstructor(){
 
     function update(e){
         e.preventDefault();
-        axios.put("http://localhost:5000/addinstructor/"+id, {name,NIC, address, phone, email,birthday})
+        axios.put("http://localhost:5000/addinstructor/"+id, {name, NIC, address,phone,email,birthday})
         .then(result => {
-            console.log(result)
+            console.log(result);
             navigate('/admin/instructor')
+            
         })
         .catch(err=>console.log(err));
     }

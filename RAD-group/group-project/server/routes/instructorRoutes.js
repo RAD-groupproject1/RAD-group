@@ -8,7 +8,14 @@ router.use(bodyParser.json());
 // Save post
 router.post("/", async(req,res) => {
 
-  const ins = new InstructorModel(req.body);
+  const ins = new InstructorModel({
+        name:req.body.name,
+        NIC: req.body.NIC,
+        address:req.body.address,
+        email:req.body.email,
+        phone:req.body.phone,
+        birthday:req.body.birthday,
+  });
   
   try {
       const response = await ins.save();
@@ -40,7 +47,7 @@ router.put('/:id', function(req,res){
   const id = req.params.id;
   InstructorModel.updateOne(
       {_id:id},
-      {name: req.body.name, adress: req.body.adress, Tele_no: req.body.Tele_no, birthDay: req.body.birthDay, email: req.body.email},
+      {name: req.body.name,NIC:re.body.NIC,address: req.body.address,phone: req.body.phone, email: req.body.email, birthday: req.body.birthday},
       {new: true} // Option to return the updated document
   )
   .then(function(updatedArticle){
