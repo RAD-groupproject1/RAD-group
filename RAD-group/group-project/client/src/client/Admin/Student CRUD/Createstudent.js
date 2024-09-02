@@ -3,6 +3,7 @@ import './addstudent.css';
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
+
 export default function AddStudent() {
   const navigate = useNavigate();
 

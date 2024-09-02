@@ -7,12 +7,14 @@ const app = express();
 
 //Routers
 const studentRouter=require('./routes/studentRoutes')
+
 const instructorRouter=require('./routes/instructorRoutes')
+
 const announcementRouter = require("./routes/announcementRoutes");
 
 // app middleware
 app.use(bodyParser.json());
-app.use(express.json());
+app.use(express.json()); 
 app.use(cors());
 
 //route middlewares

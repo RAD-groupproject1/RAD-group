@@ -8,7 +8,7 @@ export default function ViewAnnouncement() {
   const [annoucement, setAnnoucement] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:3000/announcement') 
+    axios.get('http://localhost:5001/announcement') 
     .then(result=>setAnnoucement(result.data))
     .catch(err=>console.log(err))
 },[]);
@@ -31,11 +31,11 @@ export default function ViewAnnouncement() {
             {
                annoucement.map((annoucement)=>{
                 return(
-                  <tr>
+                  <tr key={annoucement.id}>
                       <td>{annoucement.courseId}</td>
-                      <td>{annoucement.name}</td>
-                      <td>{annoucement.day}</td>
-                      <td>{annoucement.duration}</td>
+                      <td>{annoucement.date}</td>
+                      <td>{annoucement.description}</td>
+                      
                     
                   </tr>
                       );

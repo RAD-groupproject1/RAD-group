@@ -11,13 +11,14 @@ export default function Annoucement() {
   const [annoucement, setAnnoucement] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/announcement') 
+    axios.get('http://localhost:5001/announcement')  
     .then(result=>setAnnoucement(result.data))
     .catch(err=>console.log(err))
 },[]);
 
 function handleDelete(id){
-    axios.delete('http://localhost:5000/announcement/'+id)
+    axios.delete('http://localhost:5001/announcement/'+id) 
+   
     .then(res=>{console.log(res)
     window.location.reload()})
     .catch(err => console.log(err))
@@ -25,7 +26,7 @@ function handleDelete(id){
 
   const navigate = useNavigate();
   const buttonclick=()=>{
-    navigate('/instructor/annoucements/addannoucement')
+    navigate('/instructor/annoucements/addannoucement')   
   }
   return (
     <div ><InsNavbar/>
@@ -46,13 +47,13 @@ function handleDelete(id){
             {
                annoucement.map((annoucement)=>{
                 return(
-                  <tr>
+                  <tr key={annoucement.id} >
                       <td>{annoucement.courseId}</td>
-                      <td>{annoucement.name}</td>
-                      <td>{annoucement.day}</td>
-                      <td>{annoucement.duration}</td>
+                      <td>{annoucement.date}</td>
+                      <td>{annoucement.description}</td>
+                      
                       <td>
-                        <Link to={`/announcement/update/${annoucement._id}`}><button>update</button></Link>
+                        <Link to={`/instructor/annoucements/update/${annoucement._id}`}><button>update</button></Link>
                         <button onClick={() => handleDelete(annoucement._id)} >Delete</button>
                       </td>
                   </tr>

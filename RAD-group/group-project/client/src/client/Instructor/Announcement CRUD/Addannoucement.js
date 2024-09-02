@@ -12,10 +12,10 @@ export default function AddAnnoucement() {
  
 function handleSubmit(e){
         e.preventDefault();
-        axios.post("http://localhost:5000/announcement", {courseId, date, description})
+        axios.post("http://localhost:5001/announcement", {courseId, date, description})
         .then(result => {
             console.log(result)
-            navigate('/announcement')
+            navigate('/instructor/annoucements')
         })
         .catch(err=>console.log(err));
     }

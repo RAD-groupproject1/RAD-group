@@ -28,6 +28,7 @@ import Course from './client/Instructor/Course CRUD/Course'
 import Annoucement from './client/Instructor/Announcement CRUD/Annoucement'
 import Addannoucement from './client/Instructor/Announcement CRUD/Addannoucement'
 import Addcourse from './client/Instructor/Course CRUD/Addcourse'
+import Updateannoucement from './client/Instructor/Announcement CRUD/Updateannoucement'  //
 
 
 function App() {
@@ -63,6 +64,8 @@ function App() {
           <Route path="/instructor/course/addcourse" element={<Addcourse />} />
           <Route path="/instructor/annoucements" element={<Annoucement />} />
           <Route path="/instructor/annoucements/addannoucement" element={<Addannoucement />} />
+
+          <Route path="/instructor/annoucements/update/:id" element={<Updateannoucement/>} />   
 
 
 
