@@ -3,6 +3,7 @@ import InsNavbar from '../InsNavbar';
 import '../../Admin/Student CRUD/student.css'
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import '../instructor.css';
 
 
 import { useNavigate ,Link} from 'react-router-dom'
@@ -31,7 +32,17 @@ export default function Course() {
 
   return (
     <div ><InsNavbar/>
-      <h1 className='stupage'>Course Details</h1>
+      <h1 className='title'>Course Details</h1>
+      <p className="intro-text">
+        Here you can view, add, and manage all your courses effectively. Use the "Add Course" button to create a new course, 
+        and monitor your existing courses with all the relevant details displayed below.
+      </p>
+
+      <p className="tips-text">
+        <strong>Tip:</strong> Regularly updating course information helps keep your students informed and engaged. 
+        Ensure your course descriptions are clear and concise to provide the best learning experience.
+      </p>
+
      <button className='add' onClick={buttonclick}>Add Course</button>
 
      <div style={{marginTop:'150px'}}>

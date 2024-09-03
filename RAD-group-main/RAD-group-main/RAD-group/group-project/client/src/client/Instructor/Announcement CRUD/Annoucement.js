@@ -1,6 +1,7 @@
 import React from 'react'
 import InsNavbar from '../InsNavbar';
 import '../../Admin/Student CRUD/student.css'
+import '../instructor.css';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
@@ -30,7 +31,16 @@ function handleDelete(id){
   }
   return (
     <div ><InsNavbar/>
-      <h1 className='stupage'>Announcements</h1>
+      <h1 className='title'>Announcements</h1>
+      <p className="intro-text">
+        Keep your students informed with the latest updates, important notices, and upcoming events related to your courses. 
+        Use the "Add Announcement" button to share new information instantly.
+      </p>
+
+      <p className="tips-text">
+        <strong>Note:</strong> Regular communication helps maintain student engagement and ensures that everyone stays updated. 
+        Clearly state the purpose of each announcement to avoid confusion.
+      </p>
      <button className='add' onClick={buttonclick}>Add Annoucement</button>
 
      <div style={{marginTop:'150px'}}>
