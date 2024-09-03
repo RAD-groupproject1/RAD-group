@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import '../Admin/admin.css';
 
 const InsLogin = () => {
@@ -7,11 +8,16 @@ const InsLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (username === 'instructor' && password === 'password') {
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5001/insAuth/login', { username, password });
+      const { token } = response.data;
+      // Store the token (e.g., in localStorage or context)
+      localStorage.setItem('token', token);
       navigate('/instructor');
-    } else {
-      alert('Invalid credentials');
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('Error logging in');
     }
   };
 

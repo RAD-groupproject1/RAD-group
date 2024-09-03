@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../Admin/adminRegister.css';
 
 const InsRegister = () => {
@@ -8,12 +9,18 @@ const InsRegister = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    navigate('/instructorLogin'); 
+    try {
+      await axios.post('http://localhost:5001/insAuth/register', { username, password });
+
+      navigate('/instructorLogin');
+    } catch (error) {
+      alert('Error registering user');
+    } 
   };
 
   return (
