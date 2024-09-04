@@ -1,7 +1,6 @@
 import React from 'react';
 import InsNavbar from './InsNavbar';
 
-import { useState,useEffect } from 'react';
 import './instructor.css';
 
 export default function InstructorHome() {

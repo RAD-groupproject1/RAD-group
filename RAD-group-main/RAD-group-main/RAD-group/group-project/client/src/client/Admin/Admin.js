@@ -1,32 +1,56 @@
 import React from 'react';
 import Navigate from './Navigate';
 import './admin.css'
-import { useState,useEffect } from 'react';
+import adminhome from '../images/adminhome.jpg'
+import { useNavigate } from 'react-router-dom';
 
 export default function Admin() {
 
-  const [welcomeMessage, setWelcomeMessage] = useState('');
+const navigate=useNavigate();
+ const student=()=>{
+  navigate('/admin/student')
+ }
 
-  useEffect(() => {
-    const currentHour = new Date().getHours();
-    let message = '';
-
-    if (currentHour < 12) {
-      message = 'Hello Good Morning!';
-    } else if (currentHour < 18) {
-      message = 'Hello Good Afternoon!';
-    } else {
-      message = 'Hello Good Evening!';
-    }
-
-    setWelcomeMessage(message);
-  }, []);
+ const instructor=()=>{
+  navigate('/admin/instructor')
+ }
 
   return (
     <div className='admin'>
       <Navigate />
-      <div >
-      <h1 className='message'>{welcomeMessage}</h1>
+      <div className="banner">
+        <div className="banner-content">
+          <div className="text-section">
+          <section class="dashboard-overview">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p>120</p>
+            </div>
+            <div class="card">
+                <h3>Total Instructors</h3>
+                <p>15</p>
+            </div>
+            <div class="card">
+                <h3>Active Courses</h3>
+                <p>30</p>
+            </div>
+            <div class="card">
+                <h3>Pending Registrations</h3>
+                <p>5</p>
+            </div>
+        </section>
+
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <button onClick={student}>Add New Student</button>
+            <button onClick={instructor}>Add New Instructor</button>
+            
+        </section>
+          </div>
+          <div className="image-section">
+            <img src={adminhome}  />
+          </div>
+        </div>
       </div>
     </div>
   );

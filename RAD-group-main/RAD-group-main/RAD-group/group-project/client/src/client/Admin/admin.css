@@ -1,36 +1,105 @@
-.admin{
-    background: linear-gradient(to left, #33ccff 0%, #e5e0f1 70%,#add1ed 100%);
-    
-    height: 100vh;
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.banner {
     display: flex;
     flex-direction: column;
-    
-    position: relative;
-    overflow: hidden; 
-   
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 10px;
 }
 
-.message{
-    font-size: 50px;
-    color: black;
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #003366; /* Dark blue background */
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%;
+    height: 600px;
+    max-width: 1200px;
+}
+
+.text-section {
+    color: #ffffff;
+    padding: 20px;
+    flex: 1;
+}
+
+.text-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+.image-section {
+    flex: 1;
+}
+
+.image-section img {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+
+.dashboard-overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
     text-align: center;
-   font-weight: 500;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: auto;
-    position: absolute;
-    animation: 10s linear infinite;
-    animation-name: scroll-right1;
-
+    flex: 1;
+    margin: 0.5rem;
+    min-width: 200px;
 }
 
-@keyframes scroll-right1{
-   0%   {color:rgb(59, 6, 84);}
-  20%  {color:rgb(186, 48, 221);}
-  40%  {color:rgb(64, 186, 220);}
-  60%  {color:rgb(8, 164, 166); }
-  80% {color:rgb(233, 25, 205);}
-  100% {color:rgb(236, 211, 223);}
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
 
- }
+.card p {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+.quick-actions
+ {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.quick-actions button {
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-actions button:hover {
+    background-color: #0056b3;
+}
+  
