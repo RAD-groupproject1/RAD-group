@@ -5,10 +5,13 @@ import './studentHome.css'
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import stu1 from '../images/stu1.png'
-
+import { useNavigate } from 'react-router-dom';
 
 export default function ViewCourse() {
   const [courses, setCourses] = useState([]);
+
+
+  
 
   useEffect(()=>{
     axios.get('http://localhost:5001/course') 

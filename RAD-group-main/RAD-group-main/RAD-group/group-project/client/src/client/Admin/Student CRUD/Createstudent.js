@@ -36,28 +36,28 @@ export default function AddStudent() {
           <br /><br />
 
           <p className='detail'>NIC :</p>
-          <input type='text' placeholder='Enter NIC' style={{ width: '100%' }} 
-            onChange={(e) => setNIC(e.target.value)} />
+          <input type='text' placeholder='Enter NIC' style={{ width: '100%' }}  pattern='^[0-9]{12}$'
+            onChange={(e) => setNIC(e.target.value)} required/>
           <br /><br />
 
           <p className='detail'>Address :</p>
           <input type='text' placeholder='Enter Address' style={{ width: '100%' }} 
-            onChange={(e) => setAddress(e.target.value)} name='address' />
+            onChange={(e) => setAddress(e.target.value)} name='address' required />
           <br /><br />
 
           <p className='detail'>E-mail :</p>
           <input type='email' placeholder='Enter E-mail' style={{ width: '100%' }}
-            onChange={(e) => setEmail(e.target.value)} name='email' />
+            onChange={(e) => setEmail(e.target.value)} name='email' required/>
           <br /><br />
 
           <p className='detail'>Telephone No. :</p>
           <input type='tel' placeholder='Enter phone number' style={{ width: '100%' }} pattern='^[0-9]{10}$' title='please enter a valid 10-digit phone number'
-            onChange={(e) => setPhone(e.target.value)} name='phone' />
+            onChange={(e) => setPhone(e.target.value)} name='phone' required/>
           <br /><br />
 
           <p className='detail'>Birthday :</p>
           <input type='text' placeholder='Enter Birthday' style={{ width: '100%' }} 
-            onChange={(e) => setBirthday(e.target.value)} name='birthday' />
+            onChange={(e) => setBirthday(e.target.value)} name='birthday' required/>
           <br /><br />
           
           <button type='submit' className='submitStu'>SUBMIT</button>

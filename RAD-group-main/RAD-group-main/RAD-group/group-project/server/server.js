@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 // Configuration
-const JWT_SECRET = 'your_jwt_secret_key'; // Replace with your actual JWT secret
+const JWT_SECRET = 'happy'; // Replace with your actual JWT secret
 const PORT = 5001;
 const DB_URL = 'mongodb://localhost:27017'; // Update the database name as needed
 
@@ -23,13 +23,15 @@ app.use(bodyParser.json());
 app.use(express.json()); 
 app.use(cors());
 
+
+
 // Route middlewares
 app.use("/addstudent", studentRouter);
 app.use("/addinstructor", instructorRouter);
 app.use("/announcement", announcementRouter);
 app.use('/payment', paymentRouter);
 app.use('/course', courseRouter);
-app.use('/stuAuth', StudentAuthRouter);
+app.use("/stuAuth", StudentAuthRouter);
 app.use('/insAuth',InstructorAuthRouter);
 
 // Connect to MongoDB

@@ -5,9 +5,14 @@ import './studentHome.css'
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import image from '../images/roles.png'
+import { useNavigate } from 'react-router-dom';
 
 export default function ViewAnnouncement() {
   const [annoucement, setAnnoucement] = useState([]);
+  const navigate = useNavigate();
+  const [message, setMessage] = useState('');
+
+ 
 
   useEffect(()=>{
     axios.get('http://localhost:5001/announcement') 

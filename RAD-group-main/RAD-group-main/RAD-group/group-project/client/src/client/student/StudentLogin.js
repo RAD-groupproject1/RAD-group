@@ -11,15 +11,24 @@ const StudentLogin = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:5001/stuAuth/login', { username, password });
+      console.log('Login response:', response);
+  
       const { token } = response.data;
-      // Store the token (e.g., in localStorage or context)
-      localStorage.setItem('token', token);
-      navigate('/student');
+  
+      if (token) {
+        localStorage.setItem('token', token);
+        console.log('Token stored:', token);
+        navigate('/student');
+      } else {
+        console.error('Login failed: No token received');
+        alert('Login failed: No token received');
+      }
     } catch (error) {
-      console.error('Error logging in:', error);
-      alert('Error logging in');
+      console.error('Error logging in:', error.response ? error.response.data : error.message);
+      alert('Error logging in: ' + (error.response ? error.response.data.message : error.message));
     }
   };
+  
 
   return (
     <div className="login-container">
