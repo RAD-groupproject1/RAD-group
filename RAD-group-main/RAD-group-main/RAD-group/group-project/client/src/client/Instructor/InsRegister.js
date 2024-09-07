@@ -10,10 +10,19 @@ const InsRegister = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleRegister = async () => {
+    const passwordPattern = /^(?=.*Instructor)(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
     }
+
+    if (!passwordPattern.test(password)) {
+      alert('Password must be at least 8 characters long, contain at least one uppercase letter, one digit, and include the word "Instructor".');
+      return;
+    }
+  
     try {
       await axios.post('http://localhost:5001/insAuth/register', { username, password });
 
