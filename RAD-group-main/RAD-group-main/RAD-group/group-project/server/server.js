@@ -7,7 +7,7 @@ const app = express();
 // Configuration
 const JWT_SECRET = 'happy'; // Replace with your actual JWT secret
 const PORT = 5001;
-const DB_URL = 'mongodb://localhost:27017'; // Update the database name as needed
+const DB_URL = 'mongodb://localhost:27017/RAD'; // Update the database name as needed
 
 // Routers
 const studentRouter = require('./routes/studentRoutes');
@@ -17,7 +17,7 @@ const paymentRouter = require('./routes/PaymentRoutes');
 const courseRouter = require('./routes/CourseRoutes');
 const StudentAuthRouter = require('./routes/StudentAuthRoutes');
 const InstructorAuthRouter = require('./routes/InstructorAuthRoutes');
-
+const AdminAuthRouter = require('./routes/adminAuthRoutes')
 
 // App middleware
 app.use(bodyParser.json());
@@ -34,7 +34,7 @@ app.use('/payment', paymentRouter);
 app.use('/course', courseRouter);
 app.use("/stuAuth", StudentAuthRouter);
 app.use('/insAuth',InstructorAuthRouter);
-
+app.use('/adminAuth',AdminAuthRouter)
 
 // Connect to MongoDB
 mongoose.connect(DB_URL, {
