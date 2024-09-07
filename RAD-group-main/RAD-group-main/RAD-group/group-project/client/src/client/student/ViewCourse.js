@@ -22,7 +22,7 @@ export default function ViewCourse() {
   return (
     <div ><StudentNavbar/>
 
-<section className="vaccine-info">
+<section className="info">
         <div className="main-content">
             <h2 className="section-title">COURSES</h2>
             

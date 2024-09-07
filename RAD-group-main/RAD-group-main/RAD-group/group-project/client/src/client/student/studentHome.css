@@ -72,7 +72,7 @@ body, html {
     height: 60px;
 }
 
-.vaccine-info {
+.info {
     display: flex;
     justify-content: space-between;
     padding: 50px;

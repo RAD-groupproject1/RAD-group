@@ -1,18 +1,19 @@
 const express = require('express');
 const StudentModel = require('../models/Student');
 const router = express.Router();
+const bodyParser = require("body-parser");
 
 router.use(bodyParser.json());
 
-router.post("/", async(req, res) => {
-    // Only logged-in users can add students
+// Apply authenticateToken middleware to all routes that need protection
+router.post("/",async (req, res) => {
     const stu = new StudentModel({
-        name:req.body.name,
+        name: req.body.name,
         NIC: req.body.NIC,
-        address:req.body.address,
-        email:req.body.email,
-        phone:req.body.phone,
-        birthday:req.body.birthday,
+        address: req.body.address,
+        email: req.body.email,
+        phone: req.body.phone,
+        birthday: req.body.birthday,
     });
     
     try {
@@ -23,8 +24,7 @@ router.post("/", async(req, res) => {
     }
 });
 
-// Apply authenticateToken middleware to all routes if needed
-router.get("/", async(req, res) => {
+router.get("/",async (req, res) => {
   try {
       const response = await StudentModel.find({});
       res.json(response);
@@ -40,7 +40,7 @@ router.get('/getStudent/:id',(req, res) => {
     });
 });
 
-router.put('/:id',  (req, res) => {
+router.put('/:id', (req, res) => {
     const id = req.params.id;
     StudentModel.updateOne(
         {_id: id},
@@ -56,7 +56,7 @@ router.put('/:id',  (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',  (req, res) => {
     const id = req.params.id;
     StudentModel.deleteOne({_id: id})
     .then(function(deleteArticle) {

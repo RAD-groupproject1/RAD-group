@@ -18,6 +18,7 @@ const courseRouter = require('./routes/CourseRoutes');
 const StudentAuthRouter = require('./routes/StudentAuthRoutes');
 const InstructorAuthRouter = require('./routes/InstructorAuthRoutes');
 
+
 // App middleware
 app.use(bodyParser.json());
 app.use(express.json()); 
@@ -33,6 +34,7 @@ app.use('/payment', paymentRouter);
 app.use('/course', courseRouter);
 app.use("/stuAuth", StudentAuthRouter);
 app.use('/insAuth',InstructorAuthRouter);
+
 
 // Connect to MongoDB
 mongoose.connect(DB_URL, {
