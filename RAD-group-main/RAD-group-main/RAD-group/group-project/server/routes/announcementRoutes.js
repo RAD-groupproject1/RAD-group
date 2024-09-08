@@ -41,7 +41,7 @@ router.put('/:id', function(req,res){
     AnnouncementModel.updateOne(
         {_id:id},
         {courseId:req.body.courseId, date: req.body.date, description: req.body.description},
-        {new: true} // Option to return the updated document
+        //{new: true} // Option to return the updated document
     )
     .then(function(updatedArticle){
         if (updatedArticle) {

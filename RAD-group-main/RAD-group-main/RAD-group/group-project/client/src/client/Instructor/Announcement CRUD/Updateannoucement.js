@@ -26,10 +26,10 @@ function Updateannoucement(){
 
     function update(e){
         e.preventDefault();
-        axios.put("http://localhost:5001/announcement/"+id, {courseId, date, description}) //add n announce
+        axios.put("http://localhost:5001/announcement/"+id, {courseId, date, description}) 
         .then(result => {
             console.log(result)
-            navigate('/instructor/annoucements') //instru   and s to the announcemente  // delete n
+            navigate('/instructor/annoucements') 
         })
         .catch(err=>console.log(err));
     }
