@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/StudentAuth');
 
 const router = express.Router();
-const JWT_SECRET = 'happy'; // Replace with your actual JWT secret key
+const JWT_SECRET = '2d30400202062b2fc7d07e9242f68407b7e582ba3cf70d6b7c69969514305a21dc977d20fe1cd4e795825c12e9af6a893aa813e0de597fbd5f4b88d05a22a294'; // Replace with your actual JWT secret key
 
 router.post('/register', async (req, res) => {
     try {

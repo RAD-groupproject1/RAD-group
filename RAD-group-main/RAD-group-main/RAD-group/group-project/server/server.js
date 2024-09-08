@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 // Configuration
-const JWT_SECRET = 'happy'; // Replace with your actual JWT secret
+const JWT_SECRET = '2d30400202062b2fc7d07e9242f68407b7e582ba3cf70d6b7c69969514305a21dc977d20fe1cd4e795825c12e9af6a893aa813e0de597fbd5f4b88d05a22a294'; // Replace with your actual JWT secret
 const PORT = 5001;
 const DB_URL = 'mongodb://localhost:27017/RadProject'; // Update the database name as needed
 
