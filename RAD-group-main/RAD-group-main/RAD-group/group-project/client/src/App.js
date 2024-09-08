@@ -6,6 +6,7 @@ import './App.css';
 //admin
 import AdminLogin from './client/Admin/Adminlogin'
 import Admin from './client/Admin/Admin'
+import AdminRegister from './client/Admin/AdminRegister';
 
 //student crud
 import Student from './client/Admin/Student CRUD/StudentHome';
@@ -54,7 +55,7 @@ function App() {
           <Route path="/" element={<Home />} />
           
           <Route path='/adminLogin' element={<AdminLogin/>}/>
-         
+          <Route path='/adminRegister' element={<AdminRegister/>}/>
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/student" element={<Student />} />
           <Route path="/admin/student/addstudent" element={<Createstudent />} />
