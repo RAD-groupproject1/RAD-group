@@ -19,6 +19,9 @@ const Home=()=>{
   const instructor=()=>{
     navigate('/instructorLogin')
   }
+  const admin=()=>{
+    navigate('/adminLogin')
+  }
 
   return (
     <div>
@@ -34,6 +37,8 @@ const Home=()=>{
         <img src={home5} alt='' className='homeImage5' ></img>
         <img src={home2} alt='' className='homeImage2' ></img>
         <img src={home5} alt='' className='homeImage5' ></img>
+        <img src={home2} alt='' className='homeImage4' ></img>
+        <img src={home2} alt='' className='homeImage6' ></img>
         </div>
     </div>
 
@@ -48,6 +53,10 @@ const Home=()=>{
 
         <button className="button" onClick={instructor} >
           <div className="content">INSTRUCTOR</div>
+        </button>
+
+        <button className="button" onClick={admin} >
+          <div className="content">ADMIN</div>
         </button>
 
         

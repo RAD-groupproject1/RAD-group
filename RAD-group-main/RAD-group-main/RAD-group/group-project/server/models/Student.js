@@ -1,3 +1,4 @@
+
 const mongoose=require ('mongoose');
 
 const studentSchema = new mongoose.Schema({
@@ -8,11 +9,13 @@ const studentSchema = new mongoose.Schema({
 
     NIC:{
         type:String,
+        unique: true,
         required:true
     },
 
     address:{
-       type:String
+       type:String,
+       required:true,
     },
 
     email:{
@@ -26,7 +29,8 @@ const studentSchema = new mongoose.Schema({
     },
 
     birthday:{
-        type: String
+        type: String,
+        required:true
     }
 });
 

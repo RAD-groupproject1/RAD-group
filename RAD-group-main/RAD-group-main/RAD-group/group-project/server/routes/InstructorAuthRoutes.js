@@ -10,44 +10,40 @@ const JWT_SECRET = 'happy'; // Replace with your actual secret key
 router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
-        if (!username || !password) {
-            return res.status(400).send('Username and password are required');
+        if (!username || !password ) {
+            return res.status(400).send('Username, password required');
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new Instructor({ username, password: hashedPassword });
-        await newUser.save();
+
+        const newInstructor = new Instructor({ username, password: hashedPassword });
+        await newInstructor.save();
         res.status(201).send('Instructor registered');
     } catch (error) {
-        console.error('Error registering instructor:', error);
+       
         res.status(500).send('Error registering instructor');
     }
 });
 
 router.post('/login', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username,  password } = req.body;
 
-        if (!username || !password) {
+        if (!username ||!password) {
             return res.status(400).send('Username and password are required');
         }
 
-        // Check if the credentials belong to a student
+        // Check if the user is a student
         const student = await Student.findOne({ username });
         if (student) {
-            // Compare provided password with stored hashed student password
-            const isMatch = await bcrypt.compare(password, student.password);
-            if (isMatch) {
-                return res.status(400).send('Invalid credentials for instructor login');
-            }
+            return res.status(400).send('Invalid credentials for admin login');
         }
 
-        // Proceed with instructor login if not a student
+        // Proceed with admin login
         const instructor = await Instructor.findOne({ username });
         if (!instructor) {
             return res.status(404).send('Instructor not found');
         }
-
         // Compare provided password with stored hashed instructor password
         const isMatch = await bcrypt.compare(password, instructor.password);
         if (!isMatch) {

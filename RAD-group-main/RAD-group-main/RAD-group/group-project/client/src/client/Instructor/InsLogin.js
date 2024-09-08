@@ -7,17 +7,24 @@ const InsLogin = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async () => {
+    setError('');
+
+    if (!username  || !password) {
+      setError('All fields are required');
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:5001/insAuth/login', { username, password });
+      const response = await axios.post('http://localhost:5001/insAuth/login', { username,  password });
       const { token } = response.data;
       // Store the token (e.g., in localStorage or context)
       localStorage.setItem('token', token);
       navigate('/instructor');
     } catch (error) {
-      console.error('Error logging in:', error);
-      alert('Error logging in');
+      setError('Error logging in: ' + (error.response ? error.response.data.message : error.message));
     }
   };
 
@@ -31,13 +38,17 @@ const InsLogin = () => {
           value={username} 
           onChange={(e) => setUsername(e.target.value)} 
         />
+        
         <input 
           type="password" 
           placeholder="Password" 
           value={password} 
+          pattern='/^[A-Z]{3}-\d{2}-\d{4}$/'
+          title='Use your instructorId'
           onChange={(e) => setPassword(e.target.value)} 
         />
         <button onClick={handleLogin}>Login</button>
+        {error && <div className="error-message">{error}</div>}
         <p>
           Don't have an account? <Link to="/instructorRegister">Register here</Link>
         </p>

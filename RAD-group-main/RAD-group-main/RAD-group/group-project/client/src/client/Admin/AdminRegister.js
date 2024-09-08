@@ -8,34 +8,43 @@ const AdminRegister = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+
+  // Secret key
+  const secretKey = '@ADMIN';
+
+  const validatePassword = (password) => {
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordPattern.test(password) && password.includes(secretKey);
+  };
 
   const handleRegister = async () => {
-    const passwordPattern = /^(?=.*Admin)(?=.*[A-Z])(?=.*\d).{8,}$/;
+    setError('');
 
     if (!username) {
-      alert('Username is required');
+      setError('Username is required');
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      alert("Access denied!")
+      setError('Password must be in defined Admin structure.Please Enter valid password!');
       return;
     }
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      setError('Passwords do not match');
       return;
     }
 
-    if (!passwordPattern.test(password)) {
-      alert('Password must be at least 8 characters long, contain at least one uppercase letter, one digit, and include the word "Admin".');
-      return;
-    }
-  
     try {
       await axios.post('http://localhost:5001/adminAuth/register', { username, password });
       navigate('/adminLogin');
     } catch (error) {
-        console.error('Error registering user:', error.response ? error.response.data : error.message);
-        alert('Error registering user: ' + (error.response ? error.response.data.message : error.message));
-    } 
-};
-
+      console.error('Error registering user:', error.response ? error.response.data : error.message);
+      setError('Error registering user: ' + (error.response ? error.response.data.message : error.message));
+    }
+  };
 
   return (
     <div className="register-container">
@@ -60,6 +69,7 @@ const AdminRegister = () => {
           onChange={(e) => setConfirmPassword(e.target.value)} 
         />
         <button onClick={handleRegister}>Register</button>
+        {error && <div className="error-message">{error}</div>}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const app = express();
 // Configuration
 const JWT_SECRET = 'happy'; // Replace with your actual JWT secret
 const PORT = 5001;
-const DB_URL = 'mongodb://localhost:27017/RAD'; // Update the database name as needed
+const DB_URL = 'mongodb://localhost:27017/RadProject'; // Update the database name as needed
 
 // Routers
 const studentRouter = require('./routes/studentRoutes');

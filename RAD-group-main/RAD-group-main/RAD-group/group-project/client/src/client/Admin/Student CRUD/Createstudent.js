@@ -56,7 +56,7 @@ export default function AddStudent() {
           <br /><br />
 
           <p className='detail'>Birthday :</p>
-          <input type='text' placeholder='Enter Birthday' style={{ width: '100%' }} 
+          <input type='date' placeholder='Enter Birthday' style={{ width: '100%' }} 
             onChange={(e) => setBirthday(e.target.value)} name='birthday' required/>
           <br /><br />
           
