@@ -10,16 +10,9 @@ const InsRegister = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleRegister = async () => {
-    const passwordPattern = /^(?=.*Instructor)(?=.*[A-Z])(?=.*\d).{8,}$/;
-
 
     if (password !== confirmPassword) {
       alert('Passwords do not match');
-      return;
-    }
-
-    if (!passwordPattern.test(password)) {
-      alert('Password must be at least 8 characters long, contain at least one uppercase letter, one digit, and include the word "Instructor".');
       return;
     }
   
@@ -31,6 +24,7 @@ const InsRegister = () => {
       alert('Error registering user');
     } 
   };
+  
 
   return (
     <div className="register-container">
