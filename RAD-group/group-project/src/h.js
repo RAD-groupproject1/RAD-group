@@ -1,1 +1,1 @@
-//u0yui
+console.log
