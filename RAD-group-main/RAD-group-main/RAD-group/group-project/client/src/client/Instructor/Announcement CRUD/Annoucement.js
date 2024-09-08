@@ -59,7 +59,7 @@ function handleDelete(id){
                 return(
                   <tr key={annoucement.id} >
                       <td>{annoucement.courseId}</td>
-                      <td>{annoucement.date}</td>
+                      <td>{annoucement.name}</td>
                       <td>{annoucement.description}</td>
                       
                       <td>
