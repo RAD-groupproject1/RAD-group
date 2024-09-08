@@ -43,6 +43,7 @@ const InsRegister = () => {
       setError('Error registering user: ' + (error.response ? error.response.data.message : error.message));
     }
   };
+  
 
   return (
     <div className="register-container">
